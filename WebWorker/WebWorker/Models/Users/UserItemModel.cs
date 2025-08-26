@@ -6,5 +6,6 @@ public class UserItemModel
     public string FullName { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string? Image { get; set; } = null;
+    public string AuthProvider { get; set; } = "Email";
     public string[] Roles { get; set; } = [];
 }

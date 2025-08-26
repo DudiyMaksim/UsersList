@@ -1,6 +1,6 @@
 /* Основний контейнер */
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
@@ -20,6 +20,40 @@
     padding-bottom: 10px;
     border-bottom: 3px solid #3498db;
     width: fit-content;
+}
+
+/* Контейнер фільтра */
+.filter-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.filter-label {
+    font-weight: 500;
+    color: #495057;
+    white-space: nowrap;
+}
+
+.filter-select {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: white;
+    min-width: 150px;
+}
+
+.filter-count {
+    margin-left: auto;
+    color: #6c757d;
+    font-size: 0.9em;
+    white-space: nowrap;
 }
 
 /* Контейнер таблиці */
@@ -130,35 +164,116 @@
     font-weight: 600;
 }
 
-/* Ролі */
-.cell-role:contains("Admin") {
-    color: #e74c3c;
-    background-color: #ffeaea;
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 12px;
+/* Стилі для способу реєстрації */
+.cell-auth-provider {
+    width: 150px;
+    text-align: center;
 }
 
-.cell-role:contains("User") {
-    color: #27ae60;
+.auth-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.badge-email {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #bbdefb;
+}
+
+.badge-google {
+    background-color: #fbe9e7;
+    color: #d32f2f;
+    border: 1px solid #ffcdd2;
+}
+
+.badge-facebook {
+    background-color: #e8eaf6;
+    color: #303f9f;
+    border: 1px solid #c5cae9;
+}
+
+.badge-microsoft {
     background-color: #e8f5e8;
-    padding: 4px 8px;
-    border-radius: 12px;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.badge-default {
+    background-color: #f5f5f5;
+    color: #616161;
+    border: 1px solid #e0e0e0;
+}
+
+/* Стилі для ролей */
+.role-badge {
+    padding: 4px 12px;
+    border-radius: 15px;
     font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.role-admin {
+    background-color: #ffeaea;
+    color: #e74c3c;
+    border: 1px solid #f5c6cb;
+}
+
+.role-user {
+    background-color: #e8f5e8;
+    color: #27ae60;
+    border: 1px solid #c3e6cb;
+}
+
+.cell-role {
+    text-align: center;
 }
 
 /* Адаптивність */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .container {
         padding: 15px;
     }
 
     .table-container {
-        border-radius: 8px;
+        overflow-x: auto;
     }
 
     .users-table {
-        font-size: 13px;
+        min-width: 900px;
+    }
+
+    .filter-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filter-count {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 24px;
+    }
+
+    .filter-container {
+        padding: 10px;
+    }
+
+    .filter-label {
+        font-size: 14px;
     }
 
     .users-table th,
@@ -166,8 +281,9 @@
         padding: 12px 8px;
     }
 
-    .title {
-        font-size: 24px;
+    .auth-badge {
+        font-size: 0.8em;
+        padding: 4px 8px;
     }
 }
 
@@ -186,6 +302,16 @@
         width: 35px;
         height: 35px;
         font-size: 14px;
+    }
+
+    .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .filter-select {
+        width: 100%;
     }
 }
 

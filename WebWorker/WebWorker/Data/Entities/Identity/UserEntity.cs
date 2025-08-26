@@ -8,6 +8,7 @@ public class UserEntity : IdentityUser<long>
     public string? LastName { get; set; }
     public string? Image { get; set; }
     public DateTime DateCreated { get; set; } = DateTime.UtcNow;
+    public string AuthProvider { get; set; } = "Email";
 
     public virtual ICollection<UserRoleEntity>? UserRoles { get; set; }
 }

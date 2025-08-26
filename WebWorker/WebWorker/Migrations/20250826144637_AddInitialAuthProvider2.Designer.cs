@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WebWorker.Data;
@@ -11,9 +12,11 @@ using WebWorker.Data;
 namespace WebWorker.Migrations
 {
     [DbContext(typeof(AppWorkerDbContext))]
-    partial class AppWorkerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250826144637_AddInitialAuthProvider2")]
+    partial class AddInitialAuthProvider2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -150,10 +153,6 @@ namespace WebWorker.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
 
-                    b.Property<string>("AuthProvider")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("text");
@@ -172,6 +171,10 @@ namespace WebWorker.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Image")
+                        .HasColumnType("text");
+
+                    b.Property<string>("InitialAuthProvider")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("LastName")

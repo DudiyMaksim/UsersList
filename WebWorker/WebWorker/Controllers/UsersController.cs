@@ -18,6 +18,7 @@ public class UsersController(AppWorkerDbContext appDbContext) : ControllerBase
                 FullName = $"{x.FirstName ?? string.Empty} {x.LastName ?? string.Empty}",
                 Email = x.Email ?? string.Empty,
                 Image = x.Image,
+                AuthProvider = x.AuthProvider,
                 Roles = x.UserRoles!
                         .Select(r => r.Role!.Name ?? string.Empty)
                         .ToArray()

@@ -64,7 +64,8 @@ namespace WebWorker.Controllers
                     UserName = googleUser.Email,
                     Email = googleUser.Email,
                     FirstName = googleUser.FirstName,
-                    LastName = googleUser.LastName
+                    LastName = googleUser.LastName,
+                    AuthProvider = "Google"
                 };
 
                 var result = await userManager.CreateAsync(newUser);
@@ -126,7 +127,8 @@ namespace WebWorker.Controllers
                 UserName = model.Email,
                 Email = model.Email,
                 FirstName = model.FirstName,
-                LastName = model.LastName
+                LastName = model.LastName,
+                AuthProvider = "Email"
             };
 
             if (model.ImageFile != null)
